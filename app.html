@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: Coding Challenge by Stephen Foster</title>
+    <title>Fizz Buzz: Coding Challenge by Stephen Foster</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,6 +22,7 @@
 
     <!-- Custom CSS -->
     <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/prism.css" rel="stylesheet">
 
 </head>
 
@@ -29,7 +30,8 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html"><img src="/img/typingbgdark.png" height="50" width="150"> APP NAME</a>
+            <a class="navbar-brand" href="/index.html"><img src="/img/typingbgdark.png" height="50" width="150"> Fizz
+                Buzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,12 +47,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/code.html">The Code</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -58,21 +54,28 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>To-Do List</h1>
-            <div class="row align-items-end">
+            <h1 class="text-center"><strong>Fizz Buzz: A Coding Challenge</strong></h1>
+            <h3>A program that prints the numbers from 0 to 100. For multiples of three, “Fizz” is printed and for
+                multiples of five “Buzz”. For numbers which are multiples of both three and five, “FizzBuzz” is
+                displayed.</h3>
+            <hr>
+            <h5>Instructions: Enter fizz and buzz values. Press the button and the values will appear.</h5>
+            <hr>
+            <div class="row">
                 <div class="col">
-                    <label for="txtMessage" class="form-label">Item</label>
-                    <input type="text" name="txtMessage" class="form-control" id="txtMessage"
-                        placeholder="Enter An Item">
+                    <label class="form-label" for="fizzValue">Fizz Value</label>
+                    <input class="form-control" type="text" id="fizzValue" value="3" name="fizzValue">
                 </div>
                 <div class="col">
-                    <button id="btnSubmit" class="btn btn-primary">Add</button>
+                    <label class="form-label" for="buzzValue">Buzz Value</label>
+                    <input class="form-control" type="text" id="buzzValue" value="5" name="buzzValue">
                 </div>
             </div>
+            <button id="btnSubmit" class="btn btn-primary btn-lg mt-3">Start</button>
             <div class="messageStyle mt-5">
-                <ol id="results" class="list-group list-group-numbered">
+                <div id="results" class="row row-cols-5">
                     <!--My items will go here  -->
-                </ol>
+                </div>
             </div>
         </div>
     </main>
@@ -110,7 +113,7 @@
     <!-- Custom JS -->
     <script src="/js/site.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getMessage);
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
     </script>
 
 </body>

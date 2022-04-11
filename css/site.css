@@ -53,5 +53,19 @@ main>.container {
 
 .messageStyle {
     font-size: 1.5rem;
+}
+
+.fizzbuzz {
+    color: purple;
+    font-weight: bold;
+}
+
+.fizz{
+    color: red;
+    font-weight: bold;
+}
+
+.buzz{
+    color: blue;
     font-weight: bold;
 }
