@@ -58,24 +58,49 @@
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                                // Sep One - controller/accepts requests
-    function getMessage() {
-        let msg = document.getElementById("txtMessage").value;
-        displayMessage(msg);
-    }
-    // Final Step - view
-    function displayMessage(message) {
-        // First get the ol element from the page
-        element = document.getElementById("results");
-        // Next creat a new li element
-        let item = document.createElement("li");
-        // Add classes to the li element
-        item.classList.add("list-group-item");
-        // Set the message for the li element
-        item.innerHTML = message;
-        // Add the new item to the list 
-        element.appendChild(item);
-    }
+                            // Sep One - controller/accepts requests
+                            function getValues() {
+                                // Get values from user
+                                let fizzValue = document.getElementById("fizzValue").value;
+                                let buzzValue = document.getElementById("buzzValue").value;
+                                // Check for numbers
+                                fizzValue = parseInt(fizzValue);
+                                buzzValue = parseInt(buzzValue);
+                                if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+                                    let fbValues = fizzBuzzA(fizzValue, buzzValue);
+                                    displayValues(fbValues);
+                                } else {
+                                    alert("You must enter integers!");
+                                }
+                            }
+                            // Business Logic layer - Model
+                            function fizzBuzzA(fizz, buzz) {
+                                // Create array
+                                let fbValues = [];
+                                for (let i = 1; i < 100; i++) {
+                                    if (i % fizz == 0 && i % buzz == 0) {
+                                        fbValues.push('FizzBuzz');
+                                    } else if (i % fizz == 0) {
+                                        fbValues.push('Fizz');
+                                    } else if (i % buzz == 0) {
+                                        fbValues.push('Buzz');
+                                    } else {
+                                        fbValues.push(i);
+                                    }
+                                }
+                                return fbValues;
+                            }
+                            // Final Step - view
+                            function displayValues(fbValues) {
+                                let element = document.getElementById("results");
+                                // For loop
+                                for (let i = 0; i < fbValues.length; i++) {
+                                    let item = document.createElement("div");
+                                    item.classList.add("col");
+                                    item.innerHTML = fbValues[i];
+                                    element.appendChild(item);
+                                }
+                            }
                         </code>
                     </pre>
                 </div>

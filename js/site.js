@@ -7,37 +7,46 @@ function getValues() {
     fizzValue = parseInt(fizzValue);
     buzzValue = parseInt(buzzValue);
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
-        displayValues(fizzValue, buzzValue);
+        let fbValues = fizzBuzzA(fizzValue, buzzValue);
+        displayValues(fbValues);
     } else {
         alert("You must enter integers!");
     }
 }
+// Business Logic layer - Model
+function fizzBuzzA(fizz, buzz) {
+    // Create array
+    let fbValues = [];
+    for (let i = 1; i < 100; i++) {
+        if (i % fizz == 0 && i % buzz == 0) {
+            fbValues.push('FizzBuzz');
+        } else if (i % fizz == 0) {
+            fbValues.push('Fizz');
+        } else if (i % buzz == 0) {
+            fbValues.push('Buzz');
+        } else {
+            fbValues.push(i);
+        }
+    }
+    return fbValues;
+}
 // Final Step - view
-function displayValues(fizz, buzz) {
-    element = document.getElementById("results");
-    // For loop to display 0-100
-    for (let i = 1; i < 101; i++) {
+function displayValues(fbValues) {
+    let element = document.getElementById("results");
+    // For loop
+    for (let i = 0; i < fbValues.length; i++) {
         let item = document.createElement("div");
         item.classList.add("col");
-        // Test if divisible by fizz and buzz-If true replace with FIZZBUZZ
-        if (i % 3 == 0 && i % 5 == 0) {
-            item.classList.add("fizzbuzz")
-            item.innerHTML = 'FizzBuzz';
-        }
-        // Test if divisible by fizz only-If true replace with FIZZ
-        else if (i % 3 == 0) {
-            item.classList.add("fizz");
-            item.innerHTML = 'Fizz';
-        }
-        // Test if divisible by buzz only-If true replace with BUZZ
-        else if (i % 5 == 0) {
-            item.classList.add("buzz");
-            item.innerHTML = 'Buzz';
-        }
-        // Finally just print number
-        else {
-            item.innerHTML = i;
-        }
+        item.innerHTML = fbValues[i];
         element.appendChild(item);
     }
 }
+
+// styling 
+//         if (fbValues[i] = 'Fizz') {
+    // item.classList.add("fizz");
+// } else if (fbValues[i] = 'Buzz') {
+    // item.classList.add("buzz");
+// } else(fbValues[i] = 'FizzBuzz') {
+    // item.classList.add("fizzbuzz");
+// }
