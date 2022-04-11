@@ -98,6 +98,13 @@
                                     let item = document.createElement("div");
                                     item.classList.add("col");
                                     item.innerHTML = fbValues[i];
+                                    if (fbValues[i] == 'Fizz') {
+                                        item.classList.add("fizz");
+                                    } else if (fbValues[i] == 'Buzz') {
+                                        item.classList.add("buzz");
+                                    } else if (fbValues[i] == 'FizzBuzz') {
+                                        item.classList.add("fizzbuzz");
+                                    }
                                     element.appendChild(item);
                                 }
                             }

@@ -17,7 +17,7 @@ function getValues() {
 function fizzBuzzA(fizz, buzz) {
     // Create array
     let fbValues = [];
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1; i < 101; i++) {
         if (i % fizz == 0 && i % buzz == 0) {
             fbValues.push('FizzBuzz');
         } else if (i % fizz == 0) {
@@ -38,15 +38,13 @@ function displayValues(fbValues) {
         let item = document.createElement("div");
         item.classList.add("col");
         item.innerHTML = fbValues[i];
+        if (fbValues[i] == 'Fizz') {
+            item.classList.add("fizz");
+        } else if (fbValues[i] == 'Buzz') {
+            item.classList.add("buzz");
+        } else if (fbValues[i] == 'FizzBuzz') {
+            item.classList.add("fizzbuzz");
+        }
         element.appendChild(item);
     }
 }
-
-// styling 
-//         if (fbValues[i] = 'Fizz') {
-    // item.classList.add("fizz");
-// } else if (fbValues[i] = 'Buzz') {
-    // item.classList.add("buzz");
-// } else(fbValues[i] = 'FizzBuzz') {
-    // item.classList.add("fizzbuzz");
-// }
