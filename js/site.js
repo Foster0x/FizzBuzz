@@ -13,6 +13,7 @@ function getValues() {
         alert("You must enter integers!");
     }
 }
+
 // Business Logic layer - Model
 function fizzBuzzA(fizz, buzz) {
     // Create array
@@ -30,6 +31,44 @@ function fizzBuzzA(fizz, buzz) {
     }
     return fbValues;
 }
+function fizzBuzzB(fizz, buzz) {
+    let fbValues = [];
+    let isFizz = false;
+    let isBuzz = false;
+    for (let i = 1; i < 101; i++) {
+        isFizz = i % fizz == 0;
+        isBuzz = i % buzz == 0;
+        switch (true) {
+            case isFizz && isBuzz: {
+                fbValues.push('FizzBuzz');
+                break;
+            }
+            case isFizz: {
+                fbValues.push('Fizz');
+                break;
+            }
+            case isBuzz: {
+                fbValues.push('Buzz');
+                break;
+            }
+            default: {
+                fbValues.push(i);
+                break;
+            }
+        }
+        
+    }
+    return fbValues;
+}
+function fizzBuzzC(fizz, buzz) {
+    let fbValues = [];
+    for (let i = 1; i < 101; i++) {
+        let value = ((i % fizz == 0 ? 'Fizz' : '') + (i % buzz == 0 ? 'Buzz' : '') || i);
+        fbValues.push(value);
+    }
+    return fbValues;
+}
+
 // Final Step - view
 function displayValues(fbValues) {
     let element = document.getElementById("results");
